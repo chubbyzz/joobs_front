@@ -1,0 +1,63 @@
+<div layout="column" layout-align="space-around">
+    <md-content layout>
+        <div layout="row" flex="100" layout-margin layout padding>
+            <div flex="25" flex-xs="0"></div>
+            <div flex="50" flex-xs="100" layout="column">
+                <div ng-cloak>
+                    <md-content>
+                        <md-tabs md-dynamic-height md-border-bottom>
+                            <md-tab label="ENTRAR">
+                                <md-content class="md-padding">
+                                    <h3 class="md-display-1">ENTRAR</h3>
+                                    <div layout="column" ng-controller="Login as login">
+                                        <md-input-container>
+                                            <label>E-mail</label>
+                                            <input type="email" ng-model='login.user.email'/>
+                                        </md-input-container>
+                                        <md-input-container>
+                                            <label>Senha</label>
+                                            <input type="password" ng-model='login.user.password'/>
+                                        </md-input-container>
+                                        <div layout layout-align="end" layout-padding>
+                                            <md-button class="md-raised" ng-click="login.login()">LOGIN</md-button>
+                                        </div>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="NOVA EMPRESA">
+                                <md-content class="md-padding">
+                                    <h3 class="md-display-1">CADASTRAR EMPRESA</h3>
+                                    <div layout="column" ng-controller="Company as company">
+                                        <md-input-container>
+                                            <label>Nome</label>
+                                            <input type="text" ng-model='company.company_user.company.name'/>
+                                        </md-input-container>
+                                        <md-input-container>
+                                            <label>E-mail</label>
+                                            <input type="email" ng-model='company.company_user.user.email'/>
+                                        </md-input-container>
+                                        <md-input-container>
+                                            <label>Senha</label>
+                                            <input type="password" ng-model='company.company_user.user.password'/>
+                                        </md-input-container>
+                                        <md-input-container>
+                                            <label>Confirmar senha</label>
+                                            <input type="password" ng-model='company.company_user.user.password_confirmation'/>
+                                        </md-input-container>
+
+                                        <div layout layout-align="end" layout-padding>
+                                            <md-button class="md-raised" ng-click="company.create(company_user)">CADASTRAR
+                                            </md-button>
+                                        </div>
+                                        <!--{:neighborhood=>"Jardim Santo André", :zipcode=>"18077301", :city=>"Sorocaba", :complement=>"", :address=>"Rua José Lamberti", :state=>"SP"})-->
+
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                        </md-tabs>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

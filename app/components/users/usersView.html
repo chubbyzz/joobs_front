@@ -1,0 +1,28 @@
+<md-content ng-controller="User as user">
+    <!--<section ng-include="'/app/components/users/formView.html'"></section>-->
+    <app-display display="user.showForm">
+        <section ng-include="'/app/components/users/formView.html'"></section>
+    </app-display>
+    <md-list flex="" id="user-list" ng-cloak>
+        <md-subheader class="md-no-sticky">
+            <section layout>
+                <span flex="fill">Users</span>
+                <md-button ng-click="user.showSaveForm()" class="md-fab md-mini md-primary" aria-label="NOVO" >
+                    <md-icon md-svg-icon="plus"></md-icon>
+                </md-button>
+
+            </section>
+        </md-subheader>
+        <md-list layout>
+            <md-input-container flex="100">
+                <input type="text" ng-model="user.filter">
+            </md-input-container>
+        </md-list>
+        <md-list-item class="md-3-line" ng-repeat="record in user.records | filter:user.filter">
+            <div class="md-list-item-text" layout="column">
+                <app-list-item record="record" actions="user.actions"></app-list-item>
+            </div>
+        </md-list-item>
+        <md-divider></md-divider>
+    </md-list>
+</md-content>

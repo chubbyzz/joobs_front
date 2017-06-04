@@ -1,0 +1,10 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "devDependencies": {
+    "lite-server": "^2.1.0"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  }
+}

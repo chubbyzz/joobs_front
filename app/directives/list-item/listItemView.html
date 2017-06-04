@@ -1,0 +1,13 @@
+<div layout="row" layout-padding>
+    <div flex="fill">
+        <h3>{{ record.email }}</h3>
+        <p>{{ record.first_name + " " +record.last_name}}</p>
+    </div>
+    <div>
+     <span ng-repeat="action in actions">
+         <md-button ng-click="action.method(record[action.param])" class="md-fab md-mini md-{{ action.type }}" aria-label="{{ action.label }}" >
+             <md-icon md-svg-icon="{{ action.icon }}"></md-icon>
+         </md-button>
+    </span>
+    </div>
+</div>

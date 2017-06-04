@@ -1,0 +1,52 @@
+<md-content layout-padding ng-controller="ProductDerails as product">
+    <md-content layout-xs="column" layout="row" >
+        <div flex="100" layout="row">
+            <div flex-xs="0" flex="10"></div>
+            <md-content layout="column" flex="80" flex-xs="100">
+                <div flex="100" >
+                    <img class="img-responsive" style="width: 100%; max-height: 400px;"
+                         ng-src="{{ product.record.mainImage }}"/>
+                </div>
+                <div flex="100" layout-wrap layout="row">
+                    <div flex="20" flex-xs="33" ng-repeat="image in product.record.images">
+                        <a ng-click="product.showImage(image)">
+                            <img class="img-responsive" style="width: 100%"
+                                 ng-src="{{ image.path }}"/>
+                        </a>
+                    </div>
+                </div>
+            </md-content>
+            <div flex-xs="0" flex="10"></div>
+        </div>
+        <div flex="100" layout="column" layout-align="space-around">
+            <div>
+                <h1>
+                    {{ product.record.name }}<br>
+                </h1>
+                <p>
+                    <md-icon style="color: #f1c40f" ng-repeat="n in [].constructor(product.record.star) track by $index " md-svg-src="star"></md-icon>
+                    <md-icon ng-if="product.record.star < 5" ng-repeat="n in [].constructor(5-product.record.star) track by $index " md-svg-src="star"></md-icon>
+                </p>
+                <p style="color: #7f8c8d">{{ product.record.small_description}}</p>
+
+            </div>
+            <div layout="row"       layout-align="space-between center">
+                <md-input-container>
+                    <label><small>quantidade</small></label>
+                    <input required type="number" ng-model="product.quantity" min="1"/>
+                </md-input-container>
+                <h2>
+                    <strong>{{ product.record.price | currency }}</strong>
+                </h2>
+            </div>
+            <md-button class="md-raised md-primary" ng-click="product.buy()">
+                <md-icon md-svg-src="cart"></md-icon>
+                Comprar
+            </md-button>
+        </div>
+    </md-content>
+</md-content>
+
+<div>
+    <!-- coments -->
+</div>

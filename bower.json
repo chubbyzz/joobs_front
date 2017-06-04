@@ -1,0 +1,15 @@
+{
+  "directory": "app",
+  "name": "app",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-material": "^1.0.6",
+    "angular-animate": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "ngstorage": "^0.3.10",
+    "ng-token-auth": "^0.0.29",
+    "angular-ui-notification": "^0.2.0",
+    "angular-material-data-table": "^0.10.9"
+  }
+}

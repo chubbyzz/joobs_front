@@ -1,0 +1,31 @@
+<section ng-controller="Order as order">
+    <md-content layout-margin layout-padding layout="column">
+        <h1>MEUS PEDIDOS</h1>
+        <span flex="10"></span>
+        <h3 ng-if="order.records.length == 0 ">Você ainda comprou nada, visite <a ng-href="#/">nossa loja</a> e veja nossos produtos</h3>
+        <md-table-container ng-if="order.records.length > 0 " >
+            <table md-table md-row-select multiple ng-model="order.selected" md-progress="promise">
+                <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                <tr md-row>
+                    <th md-column md-numeric>#</th>
+                    <th md-column md-numeric>Produto</th>
+                    <th md-column md-numeric>Status</th>
+                    <th md-column md-numeric>Quantidade</th>
+                    <th md-column md-numeric>Preço unitario</th>
+                    <th md-column md-numeric>Total</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="record in order.records">
+                    <td md-cell>{{record.id}}</td>
+                    <td md-cell>{{record.product}}</td>
+                    <td md-cell>{{record.status}}</td>
+                    <td md-cell>{{record.quantity}}</td>
+                    <td md-cell>{{record.unit_price}}</td>
+                    <td md-cell>{{record.total}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </md-content>
+</section>

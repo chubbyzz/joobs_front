@@ -1,0 +1,84 @@
+<section layout="row" ng-controller="Job as job">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+                md-is-locked-open="! ($mdMedia('sm') || $mdMedia('xs'))" layout-fill>
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Filtros</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <h3>Preço</h3>
+            <p>Max
+                <small>{{ job.filters.max | currency}}</small>
+            </p>
+            <md-slider aria-label="xxx" ng-model="job.filters.max" step="0.1" ng-change="job.valueRangeChange()" md-discrete
+                       min="{{ job.info.min }}" max="{{ job.info.max }}"></md-slider>
+            <p>Min
+                <small>{{ job.filters.min | currency}}</small>
+            </p>
+            <md-slider aria-label="xxx" ng-model="job.filters.min" ng-change="job.valueRangeChange()" md-discrete
+                       min="{{ job.info.min }}" max="{{ job.info.max }}"></md-slider>
+        </md-content>
+        <md-divider></md-divider>
+    </md-sidenav>
+    <md-content flex layout-margin layout-padding>
+        <div layout="row" layout-xs="column">
+            <md-input-container>
+                <label>Ordem</label>
+                <md-select ng-model="job.filters.order" placeholder="">
+                    <md-option ng-value="null">Relevancia</md-option>
+                    <md-option ng-value="'price'">Menor preço</md-option>
+                    <md-option ng-value="'price desc'">Maior preço</md-option>
+                    <md-option ng-value="'name'">Nome (A-Z)</md-option>
+                    <md-option ng-value="'name desc'">Nome (Z-A)</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex="fill">
+                <label>Procurar</label>
+                <input type="text" ng-model="job.filters.search">
+            </md-input-container>
+
+            <md-content flex="fill" show-xs hide layout-padding="5">
+                <label>Preço</label>
+
+                <md-slider aria-label="xxx" ng-model="job.filters.max" ng-change="job.valueRangeChange()" md-discrete
+                           min="{{ job.info.min }}" max="{{ job.info.max }}"></md-slider>
+                <md-slider aria-label="xxx" ng-model="job.filters.min" ng-change="job.valueRangeChange()" md-discrete
+                           min="{{ job.info.min }}" max="{{ job.info.max }}"></md-slider>
+
+            </md-content>
+
+            <md-button ng-click="job.load()">Buscar</md-button>
+        </div>
+        <div layout="row" layout-wrap>
+            <div flex-xs="100" flex-sm="50" flex-gt-sm="33" flex="25" ng-repeat="record in job.records">
+                <md-card>
+                    <a ng-href="#/jobs/{{ record.slug }}">
+                        <div style="overflow: hidden; height: 300px;">
+                            <img ng-src="{{ record.image }}"/>
+                        </div>
+                    </a>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <a ng-href="#/jobs/{{ record.slug }}">{{ record.name }}</a>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <p>
+                            <small ng-if="record.discount != 0 ">
+                                    de {{ record.price * (( record.discount/ 100) + 1) | currency }}
+                            </small>&nbsp;
+                        </p>
+                        <p>por
+                            <strong>{{ record.price | currency }}</strong>
+                        </p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+        <div layout="row">
+            <md-button flex="fill" ng-disabled="! job.hasMoreProducts" class="md-raised md-primary" ng-click="job.loadMore()">
+                <md-icon md-svg-src="refresh"></md-icon>
+                Ver mais
+            </md-button>
+        </div>
+    </md-content>
+</section>

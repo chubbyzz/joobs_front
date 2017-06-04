@@ -1,0 +1,60 @@
+{
+  "login": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ"
+  },
+  "users": [
+    {
+      "id": 2,
+      "email": "qetexote-2555@yopmail.com",
+      "first_name": "Johannes",
+      "last_name": "Harri"
+    },
+    {
+      "id": 3,
+      "email": "lapicemmega-1184@yopmail.com",
+      "password": "9VHYBRKI1S",
+      "first_name": "Ottokar",
+      "last_name": "Hiram"
+    },
+    {
+      "id": 4,
+      "email": "ecyzoraqu-4745@yopmail.com",
+      "password": "8ZETM2EHFS",
+      "first_name": "Amnon",
+      "last_name": "Denzel"
+    },
+    {
+      "id": 5,
+      "email": "feremassynn-0365@yopmail.com",
+      "password": "79RD8O65O1",
+      "first_name": "Lambert",
+      "last_name": "Leudbald"
+    },
+    {
+      "id": 6,
+      "email": "pehannedde-0395@yopmail.com",
+      "password": "NOXW0M69D4",
+      "first_name": "Dardanos",
+      "last_name": "Ruy"
+    },
+    {
+      "id": 7,
+      "email": "sottefugofo-3570@yopmail.com",
+      "password": "FJ1657NIET",
+      "first_name": "Jari",
+      "last_name": "Nerses"
+    },
+    {
+      "id": 9,
+      "email": "fedubeqi-1346@yopmail.com",
+      "password": "GBVW5DZRTG",
+      "first_name": "Patton",
+      "last_name": "Nikolay"
+    },
+    {
+      "id": 10,
+      "first_name": "dasdasd",
+      "last_name": "dasdasd"
+    }
+  ]
+}
