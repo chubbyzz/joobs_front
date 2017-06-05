@@ -11,7 +11,8 @@ function CompanyFactory($http, baseUrl) {
       create: create
     }
 
-    function create(company_user) {
-        return $http.post(baseUrl + "companies/create", company_user);
+    function create(user_company) {
+        user_company = {user_company: user_company}
+        return $http.post(baseUrl + "companies/create", user_company);
     }
 }

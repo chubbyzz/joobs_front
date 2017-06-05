@@ -36,15 +36,48 @@
                                             <label>E-mail</label>
                                             <input type="email" ng-model='company.company_user.user.email'/>
                                         </md-input-container>
+                                        <div layout="row">
+                                          <md-input-container flex="50">
+                                              <label>Senha</label>
+                                              <input type="password" ng-model='company.company_user.user.password'/>
+                                          </md-input-container>
+                                          <md-input-container flex="50">
+                                              <label>Confirmar senha</label>
+                                              <input type="password" ng-model='company.company_user.user.password_confirmation'/>
+                                          </md-input-container>
+                                        </div>
+                                        <div layout="row">
+                                            <md-input-container flex="50">
+                                                <label>Estado</label>
+                                                <md-select ng-model="company.company_user.address.state_id" ng-change="company.loadCities(company.company_user.address.state_id)">
+                                                    <md-option ng-repeat="state in company.states" ng-value="state.id">
+                                                      {{state.name}}
+                                                    </md-option>
+                                                  </md-select>
+                                            </md-input-container>
+                                            <md-input-container flex="50">
+                                                <label>Cidade</label>
+                                                <md-select ng-model="company.company_user.address.city_id">
+                                                    <md-option ng-repeat="city in company.cities" ng-value="city.id" ng-disabled="vm.city_disabled">
+                                                      {{city.name}}
+                                                    </md-option>
+                                                  </md-select>
+                                            </md-input-container>
+                                        </div>
                                         <md-input-container>
-                                            <label>Senha</label>
-                                            <input type="password" ng-model='company.company_user.user.password'/>
+                                            <label>Bairro</label>
+                                            <input type="text" ng-model='company.company_user.address.district'/>
                                         </md-input-container>
-                                        <md-input-container>
-                                            <label>Confirmar senha</label>
-                                            <input type="password" ng-model='company.company_user.user.password_confirmation'/>
-                                        </md-input-container>
-
+                                        <div layout="row">
+                                            <md-input-container flex="90">
+                                                <label>Rua</label>
+                                                <input type="text" ng-model='company.company_user.address.street'/>
+                                            </md-input-container>
+                                            <md-input-container flex="10">
+                                                <label>Número</label>
+                                                <input type="text" ng-model='company.company_user.address.number'/>
+                                            </md-input-container>
+                                        </div>
                                         <div layout layout-align="end" layout-padding>
                                             <md-button class="md-raised" ng-click="company.create(company_user)">CADASTRAR
                                             </md-button>
