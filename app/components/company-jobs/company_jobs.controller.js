@@ -2,11 +2,11 @@
 
 angular
     .module('app')
-    .controller('Order', Order);
+    .controller('CompanyJobs', CompanyJobs);
 
-Order.$injection = ['ProductFactory', 'Notification', '$location'];
+CompanyJobs.$injection = ['Factory', 'Notification', '$location'];
 
-function Order(ProductFactory, Notification, $location) {
+function CompanyJobs(CompanyFactory, Notification, $location) {
     var vm = this;
     vm.init = init;
 
@@ -15,10 +15,10 @@ function Order(ProductFactory, Notification, $location) {
     function init() {
         vm.records = [];
         vm.selected = [];
-        ProductFactory.orders()
-            .success(success).error(error);
-        function  success(response) {
-            vm.records = response
+        CompanyFactory.jobs().then(success, error);
+        function success(response) {
+            vm.records = response.data
+            console.log(vm.records)
         }
 
         function error(response, status) {
@@ -33,4 +33,3 @@ function Order(ProductFactory, Notification, $location) {
 
 
 }
-

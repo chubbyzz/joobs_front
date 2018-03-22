@@ -11,8 +11,12 @@ function JobFactory($http, baseUrl) {
         search: search,
         info: info,
         find: find,
-        buy: buy,
-        orders: orders
+        apply: apply,
+        orders: orders,
+        create: create
+    }
+    function create(job) {
+        return $http.post(baseUrl + "jobs/create", {job: job});
     }
     function search(page, filters) {
         if(filters.search == null || filters.search == "") delete filters.search;
@@ -25,11 +29,13 @@ function JobFactory($http, baseUrl) {
         return $http.get(baseUrl + "jobs/find/" + slug );
     }
 
-    function buy(params) {
-        return $http.post(baseUrl + 'orders/create', params);
+    function apply(job) {
+        return $http.post(baseUrl + 'applications/apply', {slug: job});
     }
 
     function orders() {
         return $http.get(baseUrl + 'orders')
     }
+
+
 }

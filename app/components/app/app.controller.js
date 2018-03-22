@@ -4,9 +4,9 @@ angular
     .module('app')
     .controller('App', App);
 
-App.$injection = ['UserFactory', 'AuthenticateService', '$window'];
+App.$injection = ['UserFactory', 'AuthenticateService', '$window', '$location', 'Notification'];
 
-function App(UserFactory, AuthenticateService, $window, $rootScope) {
+function App(UserFactory, AuthenticateService, $window, $rootScope, $location, Notification) {
     var vm = this;
 
     vm.openMenu = openMenu;
@@ -27,11 +27,10 @@ function App(UserFactory, AuthenticateService, $window, $rootScope) {
     }
 
     function logout (){
-        AuthenticateService.logout().success(success);
-
-        function success() {
-            $window.location = '/';
-        }
+        AuthenticateService.logout().then(function (response) {
+            $location.path('/');
+            Notification.success({title: "ATÉ A PROXIMA", message: 'Volte logo'});
+        });
     }
 
 

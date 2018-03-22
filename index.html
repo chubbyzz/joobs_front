@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Joobs</title>
 
+    <link rel="stylesheet" href="/assets/css/main.css"/>
     <link rel="stylesheet" href="/assets/libs/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="/assets/libs/angular-ui-notification/dist/angular-ui-notification.min.css">
     <link rel="stylesheet" href="/assets/libs/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
@@ -14,6 +15,9 @@
 <md-content ng-controller="App as app">
     <md-toolbar>
         <div class="md-toolbar-tools">
+            <md-button ng-href="#/" class="logo-font" aria-label="Joobs">
+                J<b class="init-logo">oo</b>bs
+            </md-button>
             <span flex></span>
             <md-button ng-if="! app.hasUser" ng-href="#/users/login" class="md-icon-button" aria-label="Login">
                 <md-icon md-svg-src="account-outline"></md-icon>
@@ -24,16 +28,28 @@
                     <span hide-xs>{{ app.user.name }}</span>
                 </md-button>
                 <md-menu-content width="2">
-                    <md-menu-item>
-                        <md-button ng-href="#/orders">
-                            <md-icon md-svg-icon="cart" md-menu-align-target=""></md-icon>
-                            Minhas compras
+                    <md-menu-item ng-show="{{app.user.type == 'Company'}}">
+                        <md-button ng-href="#/jobs/new">
+                            <md-icon md-svg-icon="briefcase" md-menu-align-target=""></md-icon>
+                            Cadastrar Vaga
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item ng-show="{{app.user.type == 'Company'}}">
+                        <md-button ng-href="#/company/jobs">
+                            <md-icon md-svg-icon="view-list" md-menu-align-target=""></md-icon>
+                            Vagas
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item ng-show="{{app.user.type == 'Jobseeker'}}">
+                        <md-button ng-href="#/jobseekers/applications">
+                            <md-icon md-svg-icon="account-card-details" md-menu-align-target=""></md-icon>
+                            Minhas Vagas
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button ng-click="app.logout()">
                             <md-icon md-svg-icon="logout"></md-icon>
-                            sair
+                            SAIR
                         </md-button>
                     </md-menu-item>
                 </md-menu-content>
@@ -79,10 +95,16 @@
 
 <script src="/app/components/companies/companies.controller.js"></script>
 <script src="/app/components/companies/companies.factory.js"></script>
+<script src="/app/components/jobseeker/jobseeker.controller.js"></script>
+<script src="/app/components/jobseeker/jobseeker.factory.js"></script>
+
+<script src="/app/components/company-jobs/company_jobs.controller.js"></script>
+<script src="/app/components/company-job/company_job.controller.js"></script>
+<script src="/app/components/applications/applications.controller.js"></script>
 
 <script src="/app/components/addresses/addresses.factory.js"></script>
 
-<script src="/app/components/orders/order.controller.js"></script>
+<script src="/app/components/new_job/new_job.controller.js"></script>
 
 <script src="/app/directives/login/login.directive.js"></script>
 <script src="/app/directives/list-item/listItemDirective.js"></script>

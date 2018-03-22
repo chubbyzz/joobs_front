@@ -1,0 +1,46 @@
+<div layout="column" layout-align="space-around">
+    <md-content layout>
+        <div layout="row" flex="100" layout-margin layout padding>
+            <div flex="25" flex-xs="0"></div>
+            <div flex="50" flex-xs="100" layout="column">
+                <div ng-cloak>
+                    <md-content>
+                        <md-tabs md-dynamic-height md-border-bottom>
+                            <md-tab label="NOVA VAGA">
+                                <md-content class="md-padding">
+                                    <h3 class="md-display-1">NOVA VAGA</h3>
+                                    <div layout="column" ng-controller="NewJob as job">
+                                        <md-input-container>
+                                            <label>Título</label>
+                                            <input type="text" ng-model='job.record.name'/>
+                                        </md-input-container>
+                                        <md-input-container>
+                                            <label>Descrição</label>
+                                            <textarea md-maxlength="255" rows="5" ng-model="job.record.small_description"></textarea>
+                                        </md-input-container>
+                                        <div layout="row">
+                                          <md-input-container flex="50">
+                                              <label>Salario de</label>
+                                              <input type="number" ng-model='job.record.start_salary'/>
+                                          </md-input-container>
+                                          <md-input-container flex="50">
+                                              <label>Salario até</label>
+                                              <input type="number" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" ng-model='job.record.until_salary'/>
+                                          </md-input-container>
+                                        </div>
+                                        <div layout layout-align="end" layout-padding>
+                                            <md-button class="md-raised"  ng-click="job.create()">CADASTRAR
+                                            </md-button>
+                                        </div>
+                                        <!--{:neighborhood=>"Jardim Santo André", :zipcode=>"18077301", :city=>"Sorocaba", :complement=>"", :address=>"Rua José Lamberti", :state=>"SP"})-->
+
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                        </md-tabs>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

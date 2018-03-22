@@ -1,0 +1,43 @@
+.gray {
+	
+}
+
+.logo-font {
+	font-size: 20px !important;
+}
+
+.unfeatured {
+    font-size: 14px;
+    color: gray;
+}
+
+p {
+	margin:;
+}
+
+b.init-logo{
+    font-style: italic;
+    color:#bdc3c7;
+    margin:0 2px;
+}
+
+.label {
+	background: gray;
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+.label-orange {
+	color: white;
+	background: #e67e22;
+}
+.label-green {
+	color:white;
+	background: #2ecc71;
+}.label-red {
+	color:white;
+	background: #e74c3c;
+}.label-blue {
+	color:white;
+	background: #3498db;
+}

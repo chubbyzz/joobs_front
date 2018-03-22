@@ -4,12 +4,12 @@ angular
     .module('app')
     .controller('Company', Company)
 
-Company.$inject = ['CompanyFactory', 'AddressFactory', 'Notification'];
+Company.$inject = ['CompanyFactory', 'AddressFactory', 'Notification', '$location'];
 
-function Company(CompanyFactory, AddressFactory, Notification) {
+function Company(CompanyFactory, AddressFactory, Notification, $location) {
     var vm = this;
 
-    vm.company_user = {user: {email: '', password: '', password_confirmation: ''},company: {name: ''}, address: {zipcode: '', city_id: '', district: '', street: '', number: ''}};
+    vm.company_user = {user: {name: '', email: '', password: '', password_confirmation: ''}, address: {zipcode: '', city_id: '', district: '', street: '', number: ''}};
     vm.create = create;
     vm.loadStates = loadStates;
     vm.loadCities = loadCities;
@@ -36,7 +36,7 @@ function Company(CompanyFactory, AddressFactory, Notification) {
 
         function success(response) {
           Notification.success({title: "BEM VINDO", message: 'Olá ' + response.data.name});
-          $location.path('/');
+          $location.path('/users/login');
         }
 
         function error(response) {

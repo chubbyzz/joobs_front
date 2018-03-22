@@ -10,6 +10,7 @@ function Job(JobFactory, Notification) {
     var vm = this;
 
     vm.load = load;
+    vm.apply = apply;
     vm.setInfo = setInfo;
     vm.valueRangeChange = valueRangeChange;
     vm.loadMore = loadMore;
@@ -20,13 +21,21 @@ function Job(JobFactory, Notification) {
         search: null,
         max: 0,
         min: 0,
-        order: null
+        order: 'created_at desc'
     };
 
     vm.page = 1;
 
     vm.setInfo();
 
+
+    function apply(slug) {
+        JobFactory.apply(slug).then(
+                function (response) {
+                    Notification.success({title: "parabéns", message: "Agora é o aguardar a resposta"});
+                }
+            );
+    }
 
     function load(){
         JobFactory.search(vm.page, vm.filters).then(

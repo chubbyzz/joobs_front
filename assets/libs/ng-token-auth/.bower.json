@@ -1,6 +1,6 @@
 {
   "name": "ng-token-auth",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "authors": [
     "Lynn Dylan Hurley <lynn.dylan.hurley@gmail.com>"
   ],
@@ -25,17 +25,16 @@
     "tests"
   ],
   "dependencies": {
-    "angular": ">=1.4 <=1.5.3",
+    "angular": ">=1.4 <1.6.0",
     "angular-cookie": "~4.1.0"
   },
-  "_release": "0.0.29",
+  "_release": "0.0.30",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.29",
-    "commit": "224639432fa7ced8e9122cf58c2a591e242555d6"
+    "tag": "v0.0.30",
+    "commit": "c2971f0720d21cb27ebf7a4e5b24251375944de3"
   },
   "_source": "https://github.com/lynndylanhurley/ng-token-auth.git",
-  "_target": "^0.0.29",
-  "_originalSource": "ng-token-auth",
-  "_direct": true
+  "_target": "^0.0.30",
+  "_originalSource": "ng-token-auth"
 }

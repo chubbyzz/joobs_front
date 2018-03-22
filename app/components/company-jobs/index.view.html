@@ -1,0 +1,25 @@
+<section ng-controller="CompanyJobs as company_jobs">
+    <md-content layout-margin layout-padding layout="column">
+        <h1>VAGAS</h1>
+        <span flex="10"></span>
+        <h3"><a ng-href="#/jobs/new">Cadastrar Vagas</a></h3>
+        <md-table-container ng-if="company_jobs.records.length > 0 " >
+            <table md-table md-row-select multiple ng-model="company_jobs.selected" md-progress="promise">
+                <thead md-head md-company_jobs="query.company_jobs" md-on-recompany_jobs="getDesserts">
+                <tr md-row>
+                    <th md-column>#</th>
+                    <th md-column>Título</th>
+                    <th md-column md-numeric>Candidatos</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="record in company_jobs.records">
+                    <td md-cell>{{record.id}}</td>
+                    <td md-cell><a ng-href="#/company/job/{{ record.slug }}">{{record.name}}</a></td>
+                    <td md-cell>{{record.quantity}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </md-content>
+</section>

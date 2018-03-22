@@ -1,0 +1,43 @@
+<section ng-controller="CompanyJob as company_job">
+    <md-content layout-margin layout-padding layout="column">
+        <h1>Genrenciar Vaga ({{ company_job.job }})</h1>
+        <span flex="10"></span>
+        <md-table-container ng-if="company_job.records.length > 0 " >
+            <table md-table md-row-select multiple ng-model="company_job.selected" md-progress="promise">
+                <thead md-head md-company_job="query.company_job" md-on-recompany_job="getDesserts">
+                <tr md-row>
+                    <th md-column>#</th>
+                    <th md-column>Nome</th>
+                    <th md-column>linkedin</th>
+                    <th md-column>Status</th>
+                    <th md-column md-numeric    ></th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="record in company_job.records">
+                    <td md-cell>{{record.id}}</td>
+                    <td md-cell>{{record.name}}</td>
+                    <td md-cell>{{record.linkedin}}</td>
+                    <td md-cell><label class="label label-{{record.status_color}}">{{record.status}}</label></td>
+                    <td md-cell>
+                        <md-button class="md-icon-button label-green" ng-click="company_job.update(record.id, 'approve')" ng-if="record.status == 'Pendente'">
+                            <md-icon md-svg-src="check"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button label-red" ng-click="company_job.update(record.id, 'reprove')" ng-if="record.status == 'Pendente'">
+                            <md-icon md-svg-src="close"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button label-blue" ng-click="company_job.update(record.id, 'freeze')" ng-if="record.status == 'Pendente'">
+                            <md-icon md-svg-src="stop"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button label-orange" ng-click="company_job.update(record.id, 'defreeze')" ng-if="record.status == 'Congelado'">
+                            <md-icon md-svg-src="step-backward"></md-icon>
+                        </md-button>
+
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </md-content>
+</section>

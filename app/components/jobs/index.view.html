@@ -24,9 +24,9 @@
             <md-input-container>
                 <label>Ordem</label>
                 <md-select ng-model="job.filters.order" placeholder="">
-                    <md-option ng-value="null">Relevancia</md-option>
-                    <md-option ng-value="'price'">Menor preço</md-option>
-                    <md-option ng-value="'price desc'">Maior preço</md-option>
+                    <md-option ng-value="'created_at desc'">Atual</md-option>
+                    <md-option ng-value="'start_salary'">Menor Salario</md-option>
+                    <md-option ng-value="'until_salary desc'">Maior Salario</md-option>
                     <md-option ng-value="'name'">Nome (A-Z)</md-option>
                     <md-option ng-value="'name desc'">Nome (Z-A)</md-option>
                 </md-select>
@@ -49,27 +49,22 @@
             <md-button ng-click="job.load()">Buscar</md-button>
         </div>
         <div layout="row" layout-wrap>
-            <div flex-xs="100" flex-sm="50" flex-gt-sm="33" flex="25" ng-repeat="record in job.records">
+            <div flex="100" ng-repeat="record in job.records">
                 <md-card>
-                    <a ng-href="#/jobs/{{ record.slug }}">
-                        <div style="overflow: hidden; height: 300px;">
-                            <img ng-src="{{ record.image }}"/>
-                        </div>
-                    </a>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <a ng-href="#/jobs/{{ record.slug }}">{{ record.name }}</a>
-                        </md-card-title-text>
-                    </md-card-title>
                     <md-card-content>
-                        <p>
-                            <small ng-if="record.discount != 0 ">
-                                    de {{ record.price * (( record.discount/ 100) + 1) | currency }}
-                            </small>&nbsp;
-                        </p>
-                        <p>por
-                            <strong>{{ record.price | currency }}</strong>
-                        </p>
+                        <div layout="row" layout-align="space-between start" flex>
+                            <p >{{ record.name | uppercase }}</p>
+                            <p class="unfeatured">Salario: {{ record.start_salary | currency }} até {{ record.until_salary | currency }}</p>
+                        </div>
+                        <p> {{ record.small_description }}</p>
+                        <div layout="row" layout-align="end start" flex>
+                            <p>{{ record.company }} <span class="unfeatured">({{ record.city}}-{{ record.state }})</span></p>
+                        </div>
+                        <div layout="row" layout-align="center start" flex>
+                            <md-button flex="fill" ng-disabled="{{ ! app.hasUser }}" class="md-raised md-primary" ng-click="job.apply(record.slug)">
+                                Tenho interesse
+                            </md-button>
+                        </div>
                     </md-card-content>
                 </md-card>
             </div>

@@ -1,0 +1,27 @@
+<section ng-controller="Applications as applications">
+    <md-content layout-margin layout-padding layout="column">
+        <h1>VAGAS</h1>
+        <span flex="10"></span>
+        <h3"><a ng-href="#/jobs/new">Cadastrar Vagas</a></h3>
+        <md-table-container ng-if="applications.records.length > 0 " >
+            <table md-table md-row-select multiple ng-model="applications.selected" md-progress="promise">
+                <thead md-head md-applications="query.applications" md-on-reapplications="getDesserts">
+                <tr md-row>
+                    <th md-column>#</th>
+                    <th md-column>Título</th>
+                    <th md-column>Empresa</th>
+                    <th md-column>Status</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="record in applications.records">
+                    <td md-cell>{{record.id}}</td>
+                    <td md-cell>{{record.name}}</td>
+                    <td md-cell>{{record.company}}</td>
+                    <td md-cell><label class="label label-{{record.status_color}}">{{record.status}}</label></td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </md-content>
+</section>

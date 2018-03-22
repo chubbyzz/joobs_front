@@ -30,7 +30,7 @@
                                     <div layout="column" ng-controller="Company as company">
                                         <md-input-container>
                                             <label>Nome</label>
-                                            <input type="text" ng-model='company.company_user.company.name'/>
+                                            <input type="text" ng-model='company.company_user.user.name'/>
                                         </md-input-container>
                                         <md-input-container>
                                             <label>E-mail</label>
@@ -84,6 +84,39 @@
                                         </div>
                                         <!--{:neighborhood=>"Jardim Santo André", :zipcode=>"18077301", :city=>"Sorocaba", :complement=>"", :address=>"Rua José Lamberti", :state=>"SP"})-->
 
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="NOVO CANDIDATO">
+                                <md-content class="md-padding">
+                                    <h3 class="md-display-1">CADASTRAR CANDIDATO</h3>
+                                    <div layout="column" ng-controller="Jobseeker as jobseeker">
+                                        <md-input-container>
+                                            <label>Nome</label>
+                                            <input type="text" ng-model='jobseeker.jobseeker_user.user.name'/>
+                                        </md-input-container>
+                                        <md-input-container>
+                                            <label>E-mail</label>
+                                            <input type="email" ng-model='jobseeker.jobseeker_user.user.email'/>
+                                        </md-input-container>
+                                        <div layout="row">
+                                          <md-input-container flex="50">
+                                              <label>Senha</label>
+                                              <input type="password" ng-model='jobseeker.jobseeker_user.user.password'/>
+                                          </md-input-container>
+                                          <md-input-container flex="50">
+                                              <label>Confirmar senha</label>
+                                              <input type="password" ng-model='jobseeker.jobseeker_user.user.password_confirmation'/>
+                                          </md-input-container>
+                                        </div>
+                                        <md-input-container>
+                                            <label>Linkedin</label>
+                                            <input type="text" ng-model='jobseeker.jobseeker_user.jobseeker.linkedin'/>
+                                        </md-input-container>
+                                        <div layout layout-align="end" layout-padding>
+                                            <md-button class="md-raised" ng-click="jobseeker.create(company_user)">CADASTRAR
+                                            </md-button>
+                                        </div>
                                     </div>
                                 </md-content>
                             </md-tab>
